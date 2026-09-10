@@ -15,23 +15,6 @@ A production-grade, enterprise-level RAG system built with **LangGraph**, **Port
 
 ---
 
-## Agent Intelligence Flow
-
-```mermaid
-graph TD
-    User((User)) --> UI[Streamlit UI]
-    UI --> API[FastAPI /query]
-    API --> Guard{NeMo Guardrails}
-    Guard -->|Blocked| UI
-    Guard -->|Pass| Planner{Planner Node}
-    Planner -->|Conversational| Responder[Responder Node]
-    Planner -->|Technical| Retriever[Retriever Node]
-    Retriever --> Reranker[FlashRank Local Reranker]
-    Reranker --> Responder
-    Responder --> UI
-    Responder -.-> Memory[(LangGraph MemorySaver)]
-```
-
 ---
 
 ## Project Structure
