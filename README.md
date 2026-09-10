@@ -15,8 +15,6 @@ A production-grade, enterprise-level RAG system built with **LangGraph**, **Port
 
 ---
 
----
-
 ## Project Structure
 
 ```text
@@ -39,7 +37,7 @@ A production-grade, enterprise-level RAG system built with **LangGraph**, **Port
 ├── DATA/                # Sample datasets (True vs Noisy documentation)
 └── requirements.txt     # Pinned dependencies
 ```
-
+---
 
 
 ## Tech Stack
