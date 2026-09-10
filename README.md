@@ -1,4 +1,4 @@
-# Enterprise Agentic RAG (Scalable Pipeline)
+# Enterprise Agentic RAG 
 
 A production-grade, enterprise-level RAG system built with **LangGraph**, **Portkey LLM Gateway**, and **Gemini Embeddings**. The system distinguishes between technical "True Data" and random "Noisy Data" using semantic re-ranking, history-aware planning, and NeMo Guardrails for input/output safety.
 
@@ -140,7 +140,7 @@ uvicorn app.main:app --reload --port 8000
 streamlit run ui/app.py
 ```
 
-### 5. Run the eval suite (optional)
+### 5. Run the eval suite
 
 ```powershell
 # Requires the FastAPI backend running on :8000
@@ -149,22 +149,3 @@ streamlit run evals/app.py
 
 ---
 
-## Documentation Index
-
-| # | Guide | What it covers |
-|---|-------|---------------|
-| 01 | [System Overview](docs/01_SYSTEM_OVERVIEW.md) | High-level vision and end-to-end flow |
-| 02 | [Ingestion Engine](docs/02_INGESTION_ENGINE.md) | Document parsing and indexing pipeline |
-| 03 | [Node Intelligence](docs/03_NODE_INTELLIGENCE.md) | Planner, Retriever, Responder internals |
-| 04 | [Observability](docs/04_TRACING_AND_OBSERVABILITY.md) | Logfire + LangSmith tracing |
-| 05 | [Environment Variables](docs/05_ENVIRONMENT_VARIABLES.md) | All env vars and configuration reference |
-| 06 | [Known Gotchas](docs/06_KNOWN_GOTCHAS.md) | Non-obvious bugs and architectural decisions |
-| 07 | [FlashRank Reranking](docs/07_FLASHRANK_RERANKING.md) | Local semantic reranker deep-dive |
-| 08 | [Guardrails](docs/08_GUARDRAILS.md) | NeMo Guardrails implementation |
-| 09 | [LLM Gateway](docs/09_LLM_GATEWAY.md) | Portkey routing, fallback, and observability |
-| 10 | [Evals](docs/10_EVALS.md) | RAGAS metrics theory and token budget |
-| 11 | [Evals Pipeline](docs/11_EVALS_PIPELINE.md) | Live eval pipeline and Streamlit demo |
-
----
-
-*Built for High-Scale Enterprise Document Intelligence.*
