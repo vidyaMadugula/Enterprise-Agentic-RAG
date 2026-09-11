@@ -199,7 +199,7 @@ if prompt := st.chat_input(
 
                         base_url = os.getenv(
                             "BACKEND_URL",
-                            "http://127.0.0.1:8000",
+                            "https://enterprise-agentic-rag-caq0.onrender.com",
                         ).rstrip("/")
 
                         url = f"{base_url}/query"
