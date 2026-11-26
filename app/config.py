@@ -21,8 +21,8 @@ class Settings:
     # --- LLM GATEWAY (PORTKEY) ---
     PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
     PORTKEY_SAVED_CONFIG_ID = os.getenv("PORTKEY_SAVED_CONFIG_ID")
-    GROQ_SLUG =  "rag"     # primary: @rag/llama-3.3-70b-versatile
-    GROQ_SLUG_2 = "brag"  # fallback: @brag/llama-3.1-8b-instant
+    GROQ_SLUG =  "groq-primary"     # primary: 
+    GROQ_SLUG_2 = "groq-primary"  # fallback: 
 
     
     # --- OBSERVABILITY ---

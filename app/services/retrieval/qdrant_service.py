@@ -11,7 +11,7 @@ client = QdrantClient(
     api_key=settings.QDRANT_API_KEY
 )
 
-def search_enterprise_knowledge(query: str, limit: int = 8):
+def search_enterprise_knowledge(query: str, limit: int = 15):
     """
     Performs a high-precision search in the enterprise knowledge base.
     Uses the modern query_points interface.
@@ -39,3 +39,4 @@ def search_enterprise_knowledge(query: str, limit: int = 8):
     except Exception as e:
         logfire.error(f"❌ Qdrant Search Failed: {e}")
         return []
+

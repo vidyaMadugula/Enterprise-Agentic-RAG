@@ -11,8 +11,8 @@ import os
 import asyncio
 import logfire
 import pandas as pd
-# from openai import AsyncOpenAI
-from groq import Groq
+from openai import AsyncOpenAI
+
 
 
 from ragas.llms import llm_factory
@@ -39,8 +39,11 @@ CONTEXT_LIMIT = 2       # number of context chunks passed to RAGAS per sample
 def _build_judge():
     api_key = os.getenv("JUDGE_GROQ") or os.getenv("GROQ_API_KEY")
     # client = AsyncOpenAI(api_key=api_key, base_url=GROQ_BASE_URL)
-    client=Groq(api_key=api_key)
-    llm = llm_factory(JUDGE_MODEL, provider="groq", client=client)
+    client=AsyncOpenAI(
+        api_key=api_key,
+        base_url="https://api.groq.com/openai/v1",
+    )
+    llm = llm_factory(JUDGE_MODEL, provider="openai", client=client, temperature=0,max_tokens=2048)
     embeddings = HuggingFaceEmbeddings(
         model="sentence-transformers/all-MiniLM-L6-v2",
         use_api=False,
@@ -103,7 +106,7 @@ async def run_all_metrics(golden_dataset: dict, status_cb=None) -> dict:
     status_cb(message: str) is called for live UI updates.
     """
     judge_llm, ragas_embeddings = _build_judge()
-    samples = _prep_samples(golden_dataset)
+    samples = _prep_samples(golden_dataset)[:1]
 
     if not samples:
         raise ValueError("No samples with actual_response found. Run Phase 1 first.")

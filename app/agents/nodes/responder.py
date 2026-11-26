@@ -100,7 +100,7 @@ def generate_node(state: AgentState):
     query = state["current_query"]
 
     history_str = ""
-    for msg in state["messages"][:-1]:
+    for msg in state["messages"][-10:-1]:
         role = "User" if msg["role"] == "user" else "Assistant"
         history_str += f"{role}: {msg['content']}\n"
 

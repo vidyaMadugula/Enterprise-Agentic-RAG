@@ -6,8 +6,8 @@ import logfire
 import os
 from dotenv import load_dotenv
 
-# load_dotenv()
-# logfire.configure(token=os.getenv("LOGFIRE_TOKEN"))
+load_dotenv()
+logfire.configure(token=os.getenv("LOGFIRE_TOKEN"))
 load_dotenv()
 
 if os.getenv("LOGFIRE_TOKEN"):
@@ -74,6 +74,11 @@ def query(request: QueryRequest):
     try:
         # Gate 1: NeMo Guardrails — blocks off-topic, jailbreaks, and handles dialog
         rail_fired, rail_response = guard(q)
+        print("\n========== GUARDRAILS DEBUG ==========")
+        print("QUERY:", q)
+        print("GUARD RESULT:", rail_fired)
+        print("GUARD RESPONSE:", rail_response)
+        print("=====================================\n")
         if rail_fired:
             logfire.info(f"🛡️ Request blocked by guardrails | thread={thread_id}")
             return {
